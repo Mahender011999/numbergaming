@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <center>
+    <div class="container-fluid bg-container">
+      <div class="row bg-white">
+        <div class="col-12 col-md-6 m-auto bg-white pt-5 pb-5">
+          <img
+            class="guess-game-img"
+            
+          <p class="text-center game-description">
+            Find out the right number between 1 to 100
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 guess-bg-container text-center">
+          <h1 class="guess-heading">
+            Guess The Number
+            <img
+              class="guess-number-image"
+              src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/guess-number-img.png"
+            />
+          </h1>
+          <input type="text" class="user-input" id="userInput" />
+          <div>
+            <button class="btn btn-info check-guess" onclick="checkGuess()">
+              Check
+            </button>
+          </div>
+          <p class="game-result" id="gameResult"></p>
+        </div>
+      </div>
+    </div>
+</center>
+    <script>
+        let gameResult = document.getElementById("gameResult");
+let userInput = document.getElementById("userInput");
+let randomNumber = Math.ceil(Math.random() * 100);
+function checkGuess() {
+  let guessedNumber = parseInt(userInput.value);
+  if (guessedNumber > randomNumber) {
+    gameResult.textContent = "Too High! Try Again.";
+    gameResult.style.backgroundColor = "#1e217c";
+  }
+  else if (guessedNumber < randomNumber) {
+    gameResult.textContent = "Too Low! Try Again.";
+    gameResult.style.backgroundColor = "#1e217c";
+  }
+  else if (guessedNumber === randomNumber) {
+    gameResult.textContent = "Congratulations! You got it right.";
+    gameResult.style.backgroundColor = "green";
+  }
+  else {
+    gameResult.textContent = "Please provide a valid input.";
+    gameResult.style.backgroundColor = "#1e217c";
+  }
+}
+    </script>
+</body>
+</html>
